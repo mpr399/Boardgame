@@ -51,3 +51,20 @@ This web application displays lists of board games and their reviews. While anyo
   - username: bugs    |     password: bunny (user role)
   - username: daffy   |     password: duck  (manager role)
 5. You can also sign-up as a new user and customize your role to play with the application! 😊
+
+
+
+
+
+1. Verify Jenkins Email Configuration:
+   -----------------------------------
+Go to Manage Jenkins > Configure System.
+Scroll down to Extended E-mail Notification or E-mail Notification.
+Check the following fields:
+SMTP Server: Enter your SMTP server address (e.g., smtp.gmail.com for Gmail).
+Default user e-mail suffix: For Gmail, use @gmail.com.
+Use SMTP Authentication: Enable this and provide your email and password (or app-specific password for Gmail).
+SMTP Port: Use 587 for Gmail with TLS, or 465 for SSL.
+Use SSL: Check this if using port 465.
+Reply-To Address: Use a valid email address.
+Test E-mail Recipient: Add a test email address to verify configurations.
