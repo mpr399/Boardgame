@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    stages {
+        stage('Git Checkout') {
+            steps {
+                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/mpr399/Boardgame.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh "mvn clean package"
+            }
+        }
+    }
+    post {
+        always {
+            script {
+                def buildStatus = currentBuild.currentResult
+                def subject = "Build ${buildStatus}: ${currentBuild.fullDisplayName}"
+                def body = "The build ${currentBuild.fullDisplayName} has finished with status: ${buildStatus}. For more details, please check the Jenkins console output."
+                emailext (
+                    subject: subject,
+                    body: body,
+                    to: 'mprdevops8@gmail.com',  // Replace with the recipient's email address
+                    mimeType: 'text/html'
+                )
+            }
+        }
+    }
+}
+
+
