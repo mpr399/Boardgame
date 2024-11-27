@@ -41,8 +41,7 @@ pipeline {
                 to: 'ganeshperumal882000@gmail.com',
                 from: 'jenkins@example.com',
                 replyTo: 'jenkins@example.com',
-                mimeType: 'text/html',
-                attachmentsPattern: 'trivy-image-report.html'
+                mimeType: 'text/html'
             )
         }
     }
