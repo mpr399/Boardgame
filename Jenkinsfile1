@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh "mvn clean package"
+                sh "-mvn clean package"
             }
         }
     }
@@ -37,7 +37,7 @@ pipeline {
                 emailext(
                     subject: "${jobName} - Build ${buildNumber} - ${pipelineStatus.toUpperCase()}",
                     body: body,
-                    to: 'mprdevops8@gmail.com',
+                    to: 'bhavani.athukuri87@gmail.com',
                     from: 'jenkins@example.com',
                     replyTo: 'jenkins@example.com',
                     mimeType: 'text/html'
